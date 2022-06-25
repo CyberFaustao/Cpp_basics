@@ -1,0 +1,26 @@
+#include <iostream>
+
+#define LOG(x) std::cout << x << std::endl
+
+enum Example : char //you can specify what kind of interger it will be. By default its a 32 bit integer
+{
+    //If no value is attributed to the variables they will get number starting from 0, then 1, then 2 ...
+    // If dont specify one of them, its value will be the previous value + 1
+    A = 0,B = 5,C 
+};
+
+int a = 0;
+int b = 1;
+int c = 2;
+
+int main()
+{
+   
+   Example value = B;
+
+   if(value > 1)
+   {
+    //do something
+   }
+
+}

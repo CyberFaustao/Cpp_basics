@@ -1,0 +1,64 @@
+#include<iostream>
+
+#define LOG(x) std::cout << x << std::endl
+
+class Log2
+{
+public:
+    enum LogLevel
+    {
+        LevelError = 0, LevelWarning = 1, LevelInfo = 2
+    };
+
+private:
+
+    LogLevel m_LogLevel = LogLevelInfo;
+
+public:
+
+    void SetLevel(int level)
+    {
+        m_LogLevel = level;
+    }
+
+    void Error(const char* message)
+    {
+        if(m_LogLevel >= LevelError)
+            std::cout << "[ERROR] " << message << std::endl;
+    }
+
+    void Warn(const char* message)
+    {
+        if(m_LogLevel >= LevelWarning)
+            std::cout << "[WARNING] " << message << std::endl;
+    }
+    
+    void Info(const char* message)
+    {
+        if(m_LogLevel >= LevelInfo)
+            std::cout << "[INFO] "<< message << std::endl;
+    }
+
+
+};
+
+int main()
+{
+    Log2 log;
+
+    /*
+        A good way to know what your class should have when it comes to functionalities is to firt write what you think you should have
+        even before you have implementes them inside your class
+
+        We want a log class. that is able to log messages according to a specific level of importance
+
+        So we want something like this
+
+        log.SetLevel(LogLevelWarning); //sets the priority level to Warning level
+        log.Warn("hello!"); //prints the specified message
+    */
+
+    log.SetLevel(Log::LevelError);
+    log.Warn("hello!");
+
+}
